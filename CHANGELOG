@@ -1,6 +1,6 @@
 [0.7.0]
 New Features:
-- new import command for get all ressources as one command (`wizzy import all`).
+- new import/export all command for handle all entities at once (`wizzy import all && wizzy export all`).
 - update the docker containers to node 11
 
 [0.5.1]

@@ -254,6 +254,13 @@ Grafana.prototype.export = function(commands) {
   else if (entityType === 'datasources') {
     exportSrv.datasources(self.grafanaUrl, self.setURLOptions());
   }
+  // exporting all entities to Grafana
+  else if (entityType === 'all') {
+    exportSrv.dashboards(self.grafanaUrl, self.setURLOptions());
+    exportSrv.orgs(self.grafanaUrl, self.setURLOptions());
+    exportSrv.alerts(self.grafanaUrl, self.setURLOptions());
+    exportSrv.datasources(self.grafanaUrl, self.setURLOptions());
+  }
   else {
     logger.showError('Unsupported entity type ' + entityType);
     return;
