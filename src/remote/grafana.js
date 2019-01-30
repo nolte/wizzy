@@ -200,6 +200,13 @@ Grafana.prototype.import = function(commands) {
   // import all datasources from Grafana
   else if (entityType === 'datasources') {
     importSrv.datasources(self.grafanaUrl, self.setURLOptions());
+  }
+  // import all datasources from Grafana
+  else if (entityType === 'all') {
+    importSrv.dashboards(self.grafanaUrl, self.setURLOptions());
+    importSrv.orgs(self.grafanaUrl, self.setURLOptions());
+    importSrv.alerts(self.grafanaUrl, self.setURLOptions());
+    importSrv.datasources(self.grafanaUrl, self.setURLOptions());
   } else {
     logger.showError('Unsupported entity type ' + entityType);
     return;

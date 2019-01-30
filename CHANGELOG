@@ -1,3 +1,8 @@
+[0.7.0]
+New Features:
+- new import command for get all ressources as one command (`wizzy import all`).
+- update the docker containers to node 11
+
 [0.5.1]
 
 New Features:
