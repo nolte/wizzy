@@ -256,10 +256,29 @@ Grafana.prototype.export = function(commands) {
   }
   // exporting all entities to Grafana
   else if (entityType === 'all') {
-    exportSrv.dashboards(self.grafanaUrl, self.setURLOptions());
-    exportSrv.orgs(self.grafanaUrl, self.setURLOptions());
-    exportSrv.alerts(self.grafanaUrl, self.setURLOptions());
-    exportSrv.datasources(self.grafanaUrl, self.setURLOptions());
+    try {
+      exportSrv.dashboards(self.grafanaUrl, self.setURLOptions());
+    } catch(error) {
+      logger.showOutput('Faild to export dashoards ' + error.message);
+    }
+    try {
+      exportSrv.orgs(self.grafanaUrl, self.setURLOptions());
+    } catch(error) {
+      logger.showOutput('Faild to export orgs ' + error.message);
+    }
+    try {
+      exportSrv.alerts(self.grafanaUrl, self.setURLOptions());
+    } catch(error) {
+      logger.showOutput('Faild to export alerts ' + error.message);
+    }
+    try {
+      exportSrv.datasources(self.grafanaUrl, self.setURLOptions());
+    } catch(error) {
+      logger.showOutput('Faild to export datasources ' + error.message);
+    }
+
+
+
   }
   else {
     logger.showError('Unsupported entity type ' + entityType);
